@@ -18,6 +18,16 @@ async def on_message(message):
     if message.author == bot.user:
         return
     
+    if message.content.lower() == "#sendcat":
+        with open('CAT.jpeg', 'rb') as f:
+            picture = discord.File(f)
+            await message.channel.send(content="Aqui esta tu gato.",file = picture)
+
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+    
     if message.content.lower() == "#sendmeme":
         with open('meme.jpeg', 'rb') as f:
             picture = discord.File(f)
